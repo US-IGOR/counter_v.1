@@ -1,0 +1,11 @@
+.general
+{
+    border: 3px solid cornflowerblue;
+    background: lightslategrey;}
+
+.endValue
+{
+
+    color: red;
+    font-weight: bold;
+}

@@ -1,0 +1,11 @@
+.general
+{
+    border: 3px solid cornflowerblue;
+    background: darkslategrey;
+   color: wheat;
+}
+ .error input
+{
+    background-color: plum;
+     color: red;
+}
