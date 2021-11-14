@@ -1,4 +1,5 @@
 import React from "react";
+import s from "./ButtonControl.module.css"
 
 
 type ButtonComponPropsType = {
@@ -9,6 +10,6 @@ type ButtonComponPropsType = {
 
 
 export const ButtonCompon = (props: ButtonComponPropsType) => {
-    return    <button onClick={props.cb} disabled={props.disabled}>{props.nameButton}</button>
+    return    <button className={s.button} onClick={props.cb} disabled={props.disabled}>{props.nameButton}</button>
 
 }

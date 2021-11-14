@@ -1,9 +1,9 @@
 import React, {ChangeEvent, useState} from 'react';
-import './App.css';
+import './App.module.css';
 import {DisplayControl} from "./components/counter/displayControl/DisplayControl";
 import {Setting} from "./components/counter/setting/Setting";
 import {ButtonCompon} from "./components/commonСomponents/ButtonCompon/ButtonCompon";
-import s from "./components/counter/displayControl/displayControl.module.css";
+import s from "./App.module.css";
 
 function App() {
 
@@ -36,7 +36,7 @@ function App() {
 
 //error checking,disabling
 
-    const maxValue = state[0].min === state[0].max
+    const maxValue = state[0].min === state[0].max &&  state[0].max !== 0
 
     const errorMinValue = settingState[0].minSettingState < 0 ||
         settingState[0].maxSettingState < 0 ||
@@ -74,30 +74,36 @@ function App() {
 
 
     return (
-        <div className="App">
-            <div>
 
 
-                <DisplayControl
-                    inc={inc}
-                    res={res}
-                    displayValue={state[0].displayValue}
-                    maxValue={maxValue}
-                    error={errorMinValue}
+        <div className={s.counter}>
+            <div className={s.counter__wrapper}>
 
 
-                />
-                <Setting
-                    settingMinHandler={settingMinHandler}
-                    settingMaxHandler={settingMaxHandler}
-                    valueMinInput={settingState[0].minSettingState}
-                    valueMaxInput={settingState[0].maxSettingState}
-                    clicked={settingState[0].clicked}
-                    set={set}
-                    error={errorMinValue}
-                />
+                <div>
+                    <Setting
+                        settingMinHandler={settingMinHandler}
+                        settingMaxHandler={settingMaxHandler}
+                        valueMinInput={settingState[0].minSettingState}
+                        valueMaxInput={settingState[0].maxSettingState}
+                        clicked={settingState[0].clicked}
+                        set={set}
+                        error={errorMinValue}
+                    />
+                </div>
 
 
+                <div>
+                    <DisplayControl
+                        inc={inc}
+                        res={res}
+                        displayValue={state[0].displayValue}
+                        maxValue={maxValue}
+                        error={errorMinValue}
+                    />
+
+
+                </div>
             </div>
         </div>
     );

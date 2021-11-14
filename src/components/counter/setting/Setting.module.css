@@ -1,11 +1,58 @@
-.general
-{
-    border: 3px solid cornflowerblue;
-    background: darkslategrey;
-   color: wheat;
+
+.setting {
+    border: aqua 3px solid;
+    border-radius: 15px;
+    margin: 60px;
+    width: 300px;
+    height: 200px;
+    display: flex;
+
+
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+
 }
- .error input
-{
-    background-color: plum;
-     color: red;
+
+.setting__header {
+
+    border: aqua 3px solid;
+    border-radius: 10px;
+    height: 100%;
+    margin-bottom: 10px;
+
+
+    display: flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+
+}
+
+.setting__footer {
+    border: aqua 3px solid;
+    border-radius: 10px;
+
+    padding: 10px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.setting__value {
+    display:flex;
+    justify-content:space-evenly;
+}
+
+.input {
+
+    border: aqua 3px solid;
+    border-radius: 10px;
+    width: 70px;
+    text-align: center;
+    font-weight: bold;
+    color: aqua;
+    font-size:  20px;
+    background-color: #333333;
 }
