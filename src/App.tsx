@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, useEffect, useState} from 'react';
 import './App.module.css';
 import {DisplayControl} from "./components/counter/displayControl/DisplayControl";
 import {Setting} from "./components/counter/setting/Setting";
@@ -36,7 +36,7 @@ function App() {
 
 //error checking,disabling
 
-    const maxValue = state[0].min === state[0].max &&  state[0].max !== 0
+    const maxValue = state[0].min === state[0].max && state[0].max !== 0
 
     const errorMinValue = settingState[0].minSettingState < 0 ||
         settingState[0].maxSettingState < 0 ||
@@ -71,6 +71,41 @@ function App() {
         state[0].displayValue = state[0].min
         setState([...state])
     }
+
+
+
+    //LocalStorage
+
+    useEffect(
+        () => {
+       let minLocalStorage = localStorage.getItem('minValue')
+       let maxLocalStorage = localStorage.getItem('maxValue')
+            if (minLocalStorage && maxLocalStorage) {
+                let newLocalMin = JSON.parse(minLocalStorage)
+                let newLocalMax = JSON.parse(maxLocalStorage)
+                setSettingState( [
+                    {
+                        minSettingState: newLocalMin,
+                        maxSettingState: newLocalMax,
+                        clicked: false
+                    }
+                ])
+            }
+
+        },
+        [])
+
+
+    useEffect(
+        () => {
+            localStorage.setItem('minValue', JSON.stringify(settingState[0].minSettingState))
+            localStorage.setItem('maxValue', JSON.stringify(settingState[0].maxSettingState))
+
+
+            console.log(settingState[0].minSettingState)
+        }
+        , [settingState]
+    )
 
 
     return (
