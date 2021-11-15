@@ -56,3 +56,14 @@
     font-size:  20px;
     background-color: #333333;
 }
+.input_error {
+
+    border: red 3px solid;
+    border-radius: 10px;
+    width: 70px;
+    text-align: center;
+    font-weight: bold;
+    color: red;
+    font-size:  20px;
+    background-color: lightsalmon;
+}
